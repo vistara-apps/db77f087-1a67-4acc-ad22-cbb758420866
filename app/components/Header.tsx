@@ -2,6 +2,7 @@
 
 import { Bell, Settings2 } from 'lucide-react';
 import Link from 'next/link';
+import { ThemeToggle } from './ThemeToggle';
 
 interface HeaderProps {
   title: string;
@@ -18,6 +19,8 @@ export function Header({ title, showNotifications = true, showSettings = false }
         </h1>
         
         <div className="flex items-center gap-2">
+          <ThemeToggle />
+          
           {showNotifications && (
             <Link href="/notifications">
               <button className="p-2 hover:bg-primary/20 rounded-md transition-all border border-primary/30 hover:border-primary hover:shadow-neon-cyan relative group">

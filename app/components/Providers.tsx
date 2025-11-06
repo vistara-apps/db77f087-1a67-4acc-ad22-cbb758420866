@@ -4,6 +4,7 @@ import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { base } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { type ReactNode, useState } from 'react';
+import { ThemeProvider } from './ThemeProvider';
 
 export function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -14,7 +15,9 @@ export function Providers({ children }: { children: ReactNode }) {
       chain={base}
     >
       <QueryClientProvider client={queryClient}>
-        {children}
+        <ThemeProvider defaultColorMode="dark" defaultTheme="default">
+          {children}
+        </ThemeProvider>
       </QueryClientProvider>
     </OnchainKitProvider>
   );
