@@ -25,7 +25,7 @@ export function AppShell({ children }: AppShellProps) {
         {children}
       </main>
 
-      <nav className="fixed bottom-0 left-0 right-0 bg-surface border-t border-white/10 px-4 py-3 safe-area-inset-bottom">
+      <nav className="fixed bottom-0 left-0 right-0 bg-surface/90 backdrop-blur-md border-t-2 border-primary/30 px-4 py-3 safe-area-inset-bottom shadow-neon-cyan">
         <div className="max-w-md mx-auto flex items-center justify-around">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -35,12 +35,20 @@ export function AppShell({ children }: AppShellProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`flex flex-col items-center gap-1 transition-colors ${
-                  isActive ? 'text-primary' : 'text-fg/60 hover:text-fg'
+                className={`flex flex-col items-center gap-1 transition-all group ${
+                  isActive 
+                    ? 'text-primary neon-text-cyan' 
+                    : 'text-fg/60 hover:text-primary'
                 }`}
               >
-                <Icon size={24} />
-                <span className="text-xs">{item.label}</span>
+                <div className={`p-2 rounded-md transition-all ${
+                  isActive 
+                    ? 'bg-primary/20 border border-primary/50' 
+                    : 'group-hover:bg-primary/10 group-hover:border group-hover:border-primary/30'
+                }`}>
+                  <Icon size={24} className={isActive ? 'animate-pulse' : 'group-hover:scale-110 transition-transform'} />
+                </div>
+                <span className="text-xs font-mono uppercase tracking-wider">{item.label}</span>
               </Link>
             );
           })}

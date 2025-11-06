@@ -22,15 +22,17 @@ export default function Home() {
   if (!isReady) {
     return (
       <div className="min-h-screen bg-bg flex items-center justify-center">
-        <div className="animate-pulse text-fg">Loading ProjectFlow...</div>
+        <div className="animate-pulse text-primary neon-text-cyan font-orbitron text-xl">
+          LOADING PROJECTFLOW...
+        </div>
       </div>
     );
   }
 
   const stats = [
-    { icon: TrendingUp, label: 'Active Projects', value: '2' },
-    { icon: Users, label: 'Collaborators', value: '5' },
-    { icon: DollarSign, label: 'Total Value', value: '$13K' },
+    { icon: TrendingUp, label: 'Active Projects', value: '2', color: 'text-primary' },
+    { icon: Users, label: 'Collaborators', value: '5', color: 'text-accent' },
+    { icon: DollarSign, label: 'Total Value', value: '$13K', color: 'text-neon-green' },
   ];
 
   return (
@@ -43,44 +45,50 @@ export default function Home() {
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
-              <div key={stat.label} className="bg-surface rounded-lg p-4 text-center">
-                <Icon size={24} className="text-primary mx-auto mb-2" />
-                <p className="text-2xl font-bold text-fg">{stat.value}</p>
-                <p className="text-xs text-fg/60 mt-1">{stat.label}</p>
+              <div key={stat.label} className="retro-card rounded-lg p-4 text-center group hover:scale-105 transition-transform">
+                <Icon size={24} className={`${stat.color} mx-auto mb-2 group-hover:animate-pulse`} />
+                <p className={`text-2xl font-bold ${stat.color} font-orbitron mono`}>{stat.value}</p>
+                <p className="text-xs text-fg/60 mt-1 uppercase font-mono">{stat.label}</p>
               </div>
             );
           })}
         </div>
 
         {/* Quick Actions */}
-        <div className="bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg p-4 border border-primary/30">
-          <h2 className="text-lg font-semibold text-fg mb-3">Quick Actions</h2>
+        <div className="holographic rounded-lg p-4 border-2 border-primary/50 shadow-neon-cyan">
+          <h2 className="text-lg font-bold text-primary mb-3 font-orbitron uppercase tracking-wider neon-text-cyan">
+            Quick Actions
+          </h2>
           <div className="grid grid-cols-2 gap-3">
             <Link href="/projects/new">
-              <button className="w-full bg-primary hover:bg-accent text-white px-4 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
+              <button className="w-full retro-button text-bg px-4 py-3 rounded-md font-bold transition-all flex items-center justify-center gap-2 font-orbitron">
                 <Plus size={20} />
                 New Project
               </button>
             </Link>
             <Link href="/credentials">
-              <button className="w-full bg-surface hover:bg-surface/80 text-fg px-4 py-3 rounded-lg font-medium transition-colors border border-white/10">
-                View Credentials
+              <button className="w-full bg-surface hover:bg-surface/80 text-primary px-4 py-3 rounded-md font-bold transition-all border-2 border-accent/50 hover:border-accent hover:shadow-neon-pink font-orbitron uppercase">
+                Credentials
               </button>
             </Link>
           </div>
         </div>
 
         {/* Wallet Connection */}
-        <div className="bg-surface rounded-lg p-4 border border-white/5">
-          <h3 className="text-sm font-medium text-fg/80 mb-3">Wallet Status</h3>
+        <div className="retro-card rounded-lg p-4">
+          <h3 className="text-sm font-bold text-accent/80 mb-3 uppercase font-mono tracking-wider">
+            Wallet Status
+          </h3>
           <ConnectWalletButton />
         </div>
 
         {/* Active Projects */}
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-fg">Active Projects</h2>
-            <Link href="/projects" className="text-sm text-primary hover:text-accent">
+            <h2 className="text-xl font-bold text-primary font-orbitron uppercase tracking-wider neon-text-cyan">
+              Active Projects
+            </h2>
+            <Link href="/projects" className="text-sm text-accent hover:text-accent/80 font-mono uppercase hover:neon-text-pink transition-all">
               View All →
             </Link>
           </div>
@@ -94,24 +102,30 @@ export default function Home() {
 
         {/* Recent Activity */}
         <div>
-          <h2 className="text-xl font-bold text-fg mb-4">Recent Activity</h2>
+          <h2 className="text-xl font-bold text-primary mb-4 font-orbitron uppercase tracking-wider neon-text-cyan">
+            Recent Activity
+          </h2>
           <div className="space-y-3">
-            <div className="bg-surface rounded-lg p-4 border border-white/5">
+            <div className="retro-card rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-success rounded-full mt-2" />
+                <div className="w-3 h-3 bg-success rounded-full mt-2 animate-pulse shadow-neon-green" />
                 <div className="flex-1">
-                  <p className="text-sm text-fg">Milestone approved for <span className="font-medium">E-commerce Website</span></p>
-                  <p className="text-xs text-fg/60 mt-1">2 hours ago</p>
+                  <p className="text-sm text-fg">
+                    Milestone approved for <span className="font-bold text-primary">E-commerce Website</span>
+                  </p>
+                  <p className="text-xs text-fg/60 mt-1 font-mono">2 hours ago</p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-surface rounded-lg p-4 border border-white/5">
+            <div className="retro-card rounded-lg p-4">
               <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2" />
+                <div className="w-3 h-3 bg-primary rounded-full mt-2 animate-pulse shadow-neon-cyan" />
                 <div className="flex-1">
-                  <p className="text-sm text-fg">New project created: <span className="font-medium">Mobile App Development</span></p>
-                  <p className="text-xs text-fg/60 mt-1">1 day ago</p>
+                  <p className="text-sm text-fg">
+                    New project created: <span className="font-bold text-accent">Mobile App Development</span>
+                  </p>
+                  <p className="text-xs text-fg/60 mt-1 font-mono">1 day ago</p>
                 </div>
               </div>
             </div>

@@ -17,18 +17,20 @@ export default function Error({
   return (
     <div className="min-h-screen bg-bg flex items-center justify-center px-4">
       <div className="max-w-md w-full text-center space-y-6">
-        <AlertCircle size={64} className="text-error mx-auto" />
+        <AlertCircle size={64} className="text-error mx-auto animate-pulse shadow-neon-pink" />
         <div>
-          <h2 className="text-2xl font-bold text-fg mb-2">Something went wrong!</h2>
-          <p className="text-fg/60">
+          <h2 className="text-2xl font-bold text-error mb-2 font-orbitron uppercase neon-text-pink glitch">
+            System Error!
+          </h2>
+          <p className="text-fg/60 font-mono">
             We encountered an error while loading this page.
           </p>
         </div>
         <button
           onClick={reset}
-          className="bg-primary hover:bg-accent text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          className="retro-button text-bg px-6 py-3 rounded-md font-bold transition-all font-orbitron"
         >
-          Try Again
+          TRY AGAIN
         </button>
       </div>
     </div>

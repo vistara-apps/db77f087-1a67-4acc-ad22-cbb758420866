@@ -28,30 +28,32 @@ export default function SearchPage() {
       <div className="max-w-md mx-auto px-4 py-6 space-y-6">
         {/* Search Input */}
         <div className="relative">
-          <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-fg/60" />
+          <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-primary animate-pulse" />
           <input
             type="text"
-            placeholder="Search projects, contractors..."
+            placeholder="SEARCH PROJECTS, CONTRACTORS..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-surface text-fg pl-12 pr-4 py-3 rounded-lg border border-white/10 focus:border-primary focus:outline-none transition-colors"
+            className="w-full bg-surface text-fg pl-12 pr-4 py-3 rounded-md border-2 border-primary/30 focus:border-primary focus:outline-none focus:shadow-neon-cyan transition-all font-mono placeholder:text-fg/40 placeholder:uppercase"
           />
         </div>
 
         {/* Categories */}
         <div>
-          <h2 className="text-lg font-semibold text-fg mb-3">Browse by Category</h2>
+          <h2 className="text-lg font-bold text-primary mb-3 font-orbitron uppercase tracking-wider neon-text-cyan">
+            Browse by Category
+          </h2>
           <div className="grid grid-cols-3 gap-3">
             {categories.map((category) => {
               const Icon = category.icon;
               return (
                 <button
                   key={category.label}
-                  className="bg-surface hover:bg-surface/80 rounded-lg p-4 text-center transition-colors border border-white/5"
+                  className="retro-card rounded-lg p-4 text-center transition-all hover:scale-105 group"
                 >
-                  <Icon size={24} className="text-primary mx-auto mb-2" />
-                  <p className="text-sm font-medium text-fg">{category.label}</p>
-                  <p className="text-xs text-fg/60 mt-1">{category.count}</p>
+                  <Icon size={24} className="text-primary mx-auto mb-2 group-hover:animate-pulse" />
+                  <p className="text-sm font-bold text-primary font-orbitron">{category.label}</p>
+                  <p className="text-xs text-fg/60 mt-1 font-mono">{category.count}</p>
                 </button>
               );
             })}
@@ -60,15 +62,17 @@ export default function SearchPage() {
 
         {/* Trending Searches */}
         <div>
-          <h2 className="text-lg font-semibold text-fg mb-3">Trending Searches</h2>
+          <h2 className="text-lg font-bold text-primary mb-3 font-orbitron uppercase tracking-wider neon-text-cyan">
+            Trending Searches
+          </h2>
           <div className="space-y-2">
             {trendingSearches.map((search, index) => (
               <button
                 key={index}
-                className="w-full bg-surface hover:bg-surface/80 rounded-lg p-3 text-left transition-colors border border-white/5 flex items-center gap-3"
+                className="w-full retro-card rounded-lg p-3 text-left transition-all hover:border-primary/60 hover:shadow-neon-cyan flex items-center gap-3 group"
               >
-                <TrendingUp size={16} className="text-primary" />
-                <span className="text-fg">{search}</span>
+                <TrendingUp size={16} className="text-accent group-hover:animate-pulse" />
+                <span className="text-fg group-hover:text-primary transition-colors">{search}</span>
               </button>
             ))}
           </div>

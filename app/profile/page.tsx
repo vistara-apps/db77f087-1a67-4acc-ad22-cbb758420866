@@ -15,18 +15,18 @@ export default function ProfilePage() {
 
       <div className="max-w-md mx-auto px-4 py-6 space-y-6">
         {/* Profile Header */}
-        <div className="bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg p-6 border border-primary/30">
+        <div className="holographic rounded-lg p-6 border-2 border-primary/50 shadow-neon-cyan">
           <div className="flex items-start gap-4 mb-4">
-            <div className="w-20 h-20 bg-primary/30 rounded-full flex items-center justify-center text-3xl font-bold text-primary">
+            <div className="w-20 h-20 bg-gradient-retro rounded-full flex items-center justify-center text-3xl font-bold text-bg border-2 border-primary shadow-neon-cyan pulse-glow font-orbitron">
               {profile.displayName.charAt(0)}
             </div>
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-fg">{profile.displayName}</h2>
-              <p className="text-fg/60">@{profile.username}</p>
+              <h2 className="text-2xl font-bold text-primary font-orbitron neon-text-cyan">{profile.displayName}</h2>
+              <p className="text-accent font-mono">@{profile.username}</p>
               <div className="flex items-center gap-1 mt-2">
-                <Star size={16} className="text-warning fill-warning" />
-                <span className="text-fg font-medium">{profile.rating}</span>
-                <span className="text-fg/60 text-sm ml-1">({profile.completedProjects} projects)</span>
+                <Star size={16} className="text-warning fill-warning animate-pulse" />
+                <span className="text-neon-green font-bold font-mono">{profile.rating}</span>
+                <span className="text-fg/60 text-sm ml-1 font-mono">({profile.completedProjects} projects)</span>
               </div>
             </div>
           </div>
@@ -38,30 +38,30 @@ export default function ProfilePage() {
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-3">
-          <div className="bg-surface rounded-lg p-4 text-center border border-white/5">
-            <Briefcase size={24} className="text-primary mx-auto mb-2" />
-            <p className="text-2xl font-bold text-fg">{profile.completedProjects}</p>
-            <p className="text-xs text-fg/60 mt-1">Projects</p>
+          <div className="retro-card rounded-lg p-4 text-center group hover:scale-105 transition-transform">
+            <Briefcase size={24} className="text-primary mx-auto mb-2 group-hover:animate-pulse" />
+            <p className="text-2xl font-bold text-primary font-orbitron">{profile.completedProjects}</p>
+            <p className="text-xs text-fg/60 mt-1 uppercase font-mono">Projects</p>
           </div>
           
-          <div className="bg-surface rounded-lg p-4 text-center border border-white/5">
-            <DollarSign size={24} className="text-success mx-auto mb-2" />
-            <p className="text-2xl font-bold text-fg">${(profile.totalEarned / 1000).toFixed(0)}K</p>
-            <p className="text-xs text-fg/60 mt-1">Earned</p>
+          <div className="retro-card rounded-lg p-4 text-center group hover:scale-105 transition-transform">
+            <DollarSign size={24} className="text-neon-green mx-auto mb-2 group-hover:animate-pulse" />
+            <p className="text-2xl font-bold text-neon-green font-orbitron">${(profile.totalEarned / 1000).toFixed(0)}K</p>
+            <p className="text-xs text-fg/60 mt-1 uppercase font-mono">Earned</p>
           </div>
           
-          <div className="bg-surface rounded-lg p-4 text-center border border-white/5">
-            <Award size={24} className="text-warning mx-auto mb-2" />
-            <p className="text-2xl font-bold text-fg">{profile.credentials.length}</p>
-            <p className="text-xs text-fg/60 mt-1">Credentials</p>
+          <div className="retro-card rounded-lg p-4 text-center group hover:scale-105 transition-transform">
+            <Award size={24} className="text-accent mx-auto mb-2 group-hover:animate-pulse" />
+            <p className="text-2xl font-bold text-accent font-orbitron">{profile.credentials.length}</p>
+            <p className="text-xs text-fg/60 mt-1 uppercase font-mono">Credentials</p>
           </div>
         </div>
 
         {/* Credentials */}
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-fg">Credentials</h3>
-            <button className="text-sm text-primary hover:text-accent">
+            <h3 className="text-xl font-bold text-primary font-orbitron uppercase tracking-wider neon-text-cyan">Credentials</h3>
+            <button className="text-sm text-accent hover:text-accent/80 font-mono uppercase hover:neon-text-pink transition-all">
               View All →
             </button>
           </div>
@@ -79,11 +79,11 @@ export default function ProfilePage() {
 
         {/* Actions */}
         <div className="space-y-3">
-          <button className="w-full bg-primary hover:bg-accent text-white px-6 py-3 rounded-lg font-medium transition-colors">
-            Edit Profile
+          <button className="w-full retro-button text-bg px-6 py-3 rounded-md font-bold transition-all font-orbitron">
+            EDIT PROFILE
           </button>
-          <button className="w-full bg-surface hover:bg-surface/80 text-fg px-6 py-3 rounded-lg font-medium transition-colors border border-white/10">
-            Share Profile
+          <button className="w-full bg-surface hover:bg-surface/80 text-primary px-6 py-3 rounded-md font-bold transition-all border-2 border-accent/50 hover:border-accent hover:shadow-neon-pink font-orbitron uppercase">
+            SHARE PROFILE
           </button>
         </div>
       </div>

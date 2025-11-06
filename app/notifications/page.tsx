@@ -47,7 +47,7 @@ export default function NotificationsPage() {
   const getIconColor = (type: string) => {
     switch (type) {
       case 'success':
-        return 'text-success';
+        return 'text-neon-green';
       case 'warning':
         return 'text-warning';
       case 'info':
@@ -68,23 +68,23 @@ export default function NotificationsPage() {
             return (
               <div
                 key={notification.id}
-                className={`bg-surface rounded-lg p-4 border transition-colors cursor-pointer ${
+                className={`retro-card rounded-lg p-4 transition-all cursor-pointer ${
                   notification.unread
-                    ? 'border-primary/30 hover:bg-surface/80'
-                    : 'border-white/5 hover:bg-surface/80'
+                    ? 'border-primary/50 shadow-neon-cyan'
+                    : ''
                 }`}
               >
                 <div className="flex items-start gap-3">
-                  <Icon size={24} className={getIconColor(notification.type)} />
+                  <Icon size={24} className={`${getIconColor(notification.type)} ${notification.unread ? 'animate-pulse' : ''}`} />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2 mb-1">
-                      <h3 className="font-semibold text-fg">{notification.title}</h3>
+                      <h3 className="font-bold text-primary font-orbitron">{notification.title}</h3>
                       {notification.unread && (
-                        <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-1" />
+                        <span className="w-3 h-3 bg-primary rounded-full flex-shrink-0 mt-1 animate-pulse shadow-neon-cyan" />
                       )}
                     </div>
                     <p className="text-sm text-fg/80 mb-2">{notification.message}</p>
-                    <p className="text-xs text-fg/60">{notification.time}</p>
+                    <p className="text-xs text-fg/60 font-mono">{notification.time}</p>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default function NotificationsPage() {
 
         {notifications.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-fg/60">No notifications yet</p>
+            <p className="text-fg/60 font-mono uppercase">No notifications yet</p>
           </div>
         )}
       </div>
