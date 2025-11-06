@@ -414,6 +414,24 @@ div[class*="max-w"] {
     transform: translateY(0);
   }
   
+  /* Pixelated Color Shift Animation */
+  .pixelated-color-shift {
+    animation: pixelated-shift 3s infinite;
+    image-rendering: pixelated;
+  }
+  
+  @keyframes pixelated-shift {
+    0%, 49% {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-neon-blue));
+    }
+    50%, 99% {
+      background: linear-gradient(135deg, var(--color-accent), var(--color-neon-pink));
+    }
+    100% {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-neon-blue));
+    }
+  }
+  
   /* Retro Card */
   .retro-card {
     background: rgba(26, 26, 46, 0.8);
