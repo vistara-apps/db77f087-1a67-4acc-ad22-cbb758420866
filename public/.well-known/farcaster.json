@@ -8,9 +8,9 @@
     "version": "vNext",
     "name": "ProjectFlow",
     "iconUrl": "https://projectflow.xyz/icons/icon-256x256.png",
-    "homeUrl": "https://projectflow.xyz/miniapp",
+    "homeUrl": "https://app-58420866-rpsr.vercel.app",
     "splashImageUrl": "https://projectflow.xyz/images/splash-200x200.png",
     "splashBackgroundColor": "#0a1929",
-    "webhookUrl": "https://projectflow.xyz/api/farcaster/webhook"
+    "webhookUrl": "https://app-58420866-rpsr.vercel.app/api/webhook"
   }
 }
